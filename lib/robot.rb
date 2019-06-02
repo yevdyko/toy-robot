@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Robot
+  FACINGS = %i[north east south west].freeze
+
   attr_accessor :x_coordinate, :y_coordinate, :facing
 
   def initialize(x_coordinate: nil, y_coordinate: nil, facing: nil)
