@@ -11,6 +11,10 @@ class Robot
     @facing = facing
   end
 
+  def valid_facing?(facing)
+    facing && FACINGS.include?(facing)
+  end
+
   def placed?
     !(x_coordinate.nil? || y_coordinate.nil? || facing.nil?)
   end

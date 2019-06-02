@@ -19,6 +19,20 @@ describe Robot do
     end
   end
 
+  describe '#valid_facing?' do
+    it 'returns true when facing is valid' do
+      facing = :north
+
+      expect(robot.valid_facing?(facing)).to be true
+    end
+
+    it 'returns false when facing is invalid' do
+      facing = :left
+
+      expect(robot.valid_facing?(facing)).to be false
+    end
+  end
+
   describe '#placed?' do
     context 'return true when position and facing are not nil' do
       it 'has position and facing' do

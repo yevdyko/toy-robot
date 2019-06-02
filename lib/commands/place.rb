@@ -5,7 +5,7 @@ require_relative '../command'
 module Commands
   class Place < Command
     def call(table:, robot:)
-      return unless table.valid_position?(x_coordinate, y_coordinate) && valid_facing?
+      return unless table.valid_position?(x_coordinate, y_coordinate) && robot.valid_facing?(facing)
 
       robot.x_coordinate = x_coordinate
       robot.y_coordinate = y_coordinate
@@ -26,10 +26,6 @@ module Commands
 
     def facing
       @facing ||= params[2].downcase.to_sym
-    end
-
-    def valid_facing?
-      facing && Robot::FACINGS.include?(facing)
     end
   end
 end
