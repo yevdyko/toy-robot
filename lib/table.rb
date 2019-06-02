@@ -7,4 +7,8 @@ class Table
     @width = width
     @length = length
   end
+
+  def valid_position?(x_coordinate, y_coordinate)
+    (0...width).cover?(x_coordinate) && (0...length).cover?(y_coordinate)
+  end
 end
