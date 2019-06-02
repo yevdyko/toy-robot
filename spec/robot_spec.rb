@@ -67,4 +67,46 @@ describe Robot do
       end
     end
   end
+
+  describe '#next_move' do
+    context 'when facing is north' do
+      it 'returns the next position with the increased y-coordinate' do
+        robot.x_coordinate = 0
+        robot.y_coordinate = 0
+        robot.facing = :north
+
+        expect(robot.next_move).to eq([0, 1])
+      end
+    end
+
+    context 'when facing is south' do
+      it 'returns the next position with the dicreased y-coordinate' do
+        robot.x_coordinate = 0
+        robot.y_coordinate = 1
+        robot.facing = :south
+
+        expect(robot.next_move).to eq([0, 0])
+      end
+    end
+
+    context 'when facing is east' do
+      it 'returns the next position with the increased x-coordinate' do
+        robot.x_coordinate = 0
+        robot.y_coordinate = 0
+        robot.facing = :east
+
+        expect(robot.next_move).to eq([1, 0])
+      end
+    end
+
+    context 'when facing is west' do
+      it 'returns the next position with the dicreased x-coordinate' do
+        robot.x_coordinate = 2
+        robot.y_coordinate = 1
+        robot.facing = :west
+
+        expect(robot.next_move).to eq([1, 1])
+      end
+    end
+  end
 end

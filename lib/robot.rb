@@ -18,4 +18,17 @@ class Robot
   def placed?
     !(x_coordinate.nil? || y_coordinate.nil? || facing.nil?)
   end
+
+  def next_move
+    case facing
+    when :north
+      [x_coordinate, y_coordinate + 1]
+    when :south
+      [x_coordinate, y_coordinate - 1]
+    when :east
+      [x_coordinate + 1, y_coordinate]
+    when :west
+      [x_coordinate - 1, y_coordinate]
+    end
+  end
 end
