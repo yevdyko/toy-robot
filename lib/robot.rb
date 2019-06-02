@@ -10,4 +10,8 @@ class Robot
     @y_coordinate = y_coordinate
     @facing = facing
   end
+
+  def placed?
+    !(x_coordinate.nil? || y_coordinate.nil? || facing.nil?)
+  end
 end

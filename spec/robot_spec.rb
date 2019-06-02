@@ -18,4 +18,39 @@ describe Robot do
       expect(robot.facing).to be_nil
     end
   end
+
+  describe '#placed?' do
+    context 'return true when position and facing are not nil' do
+      it 'has position and facing' do
+        robot.x_coordinate = 0
+        robot.y_coordinate = 0
+        robot.facing = :north
+
+        expect(robot.placed?).to be true
+      end
+    end
+
+    context 'return false when one of the coordinates or facing is nil' do
+      it 'has a nil x-coordinate' do
+        robot.y_coordinate = 0
+        robot.facing = :north
+
+        expect(robot.placed?).to be false
+      end
+
+      it 'has a nil y-coordinate' do
+        robot.x_coordinate = 0
+        robot.facing = :north
+
+        expect(robot.placed?).to be false
+      end
+
+      it 'has a nil facing' do
+        robot.x_coordinate = 0
+        robot.y_coordinate = 0
+
+        expect(robot.placed?).to be false
+      end
+    end
+  end
 end
