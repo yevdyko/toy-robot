@@ -109,4 +109,26 @@ describe Robot do
       end
     end
   end
+
+  describe '#turn' do
+    context 'when direction is right' do
+      it 'returns the next facing in a facings array' do
+        robot.x_coordinate = 0
+        robot.y_coordinate = 3
+        robot.facing = :north
+
+        expect(robot.turn(:right)).to eq(:east)
+      end
+    end
+
+    context 'when direction is left' do
+      it 'returns the previous facing in a facings array' do
+        robot.x_coordinate = 2
+        robot.y_coordinate = 3
+        robot.facing = :east
+
+        expect(robot.turn(:left)).to eq(:north)
+      end
+    end
+  end
 end

@@ -31,4 +31,10 @@ class Robot
       [x_coordinate - 1, y_coordinate]
     end
   end
+
+  def turn(direction)
+    index = FACINGS.index(facing)
+    rotation_index = direction == :right ? 1 : -1
+    @facing = FACINGS.rotate(rotation_index)[index]
+  end
 end
